@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DnD_4e.Core
+namespace DnD_4e.Core.Modifiers
 {
 	public abstract class ModifierBase<T>
 	{

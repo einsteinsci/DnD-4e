@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace DnD_4e.Core
 {
+	public enum AbilityScoreType
+	{
+		Str, Con,
+		Dex, Int,
+		Wis, Cha
+	}
+
 	public class AbilitySet
 	{
 		public int Str
