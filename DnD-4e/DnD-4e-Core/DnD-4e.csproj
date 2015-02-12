@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Build\Powers\Healing.cs" />
+    <Compile Include="Build\Rituals\IRitual.cs" />
     <Compile Include="Core\Modifiers\AbilityModifierSet.cs" />
     <Compile Include="Core\AbilitySet.cs" />
     <Compile Include="Core\Modifiers\IntModifier.cs" />
@@ -46,15 +48,27 @@
     <Compile Include="Core\Skills\Skill.cs" />
     <Compile Include="Core\Skills\SkillSet.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\PlayerCharacter.cs" />
+    <Compile Include="Build\Classes\IClass.cs" />
+    <Compile Include="Build\Epic\IEpicDestiny.cs" />
+    <Compile Include="Build\Feats\IFeat.cs" />
+    <Compile Include="Entities\PlayerStatus.cs" />
+    <Compile Include="Events\PlayerEvent.cs" />
+    <Compile Include="Lore\Cash.cs" />
     <Compile Include="Lore\EnumsLore.cs" />
+    <Compile Include="Mechanics\DieSetup.cs" />
     <Compile Include="Mechanics\EnumsMech.cs" />
     <Compile Include="Mechanics\DieRoller.cs" />
-    <Compile Include="Powers\Damage.cs" />
+    <Compile Include="Build\Paragon\IParagonPath.cs" />
+    <Compile Include="Build\Powers\Damage.cs" />
+    <Compile Include="Build\Powers\IPower.cs" />
+    <Compile Include="Mechanics\IStatusEffect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Races\IRace.cs" />
+    <Compile Include="Build\Races\IRace.cs" />
     <Compile Include="Util\EntityUtil.cs" />
     <Compile Include="Util\Util.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

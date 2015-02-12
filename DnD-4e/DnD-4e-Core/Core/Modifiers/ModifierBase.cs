@@ -18,6 +18,8 @@ namespace DnD_4e.Core.Modifiers
 
 		public abstract T Result
 		{ get; }
+		public abstract T ResultNoTemp
+		{ get; }
 
 		public ModifierBase(T baseVal)
 		{
@@ -25,7 +27,7 @@ namespace DnD_4e.Core.Modifiers
 			Modifiers = new Dictionary<string, T>();
 		}
 
-		public bool IsModifierTemporary(string key)
+		public static bool IsModifierTemporary(string key)
 		{
 			return key.StartsWith(TEMP_MODIFIER_PREFIX, StringComparison.CurrentCultureIgnoreCase);
 		}

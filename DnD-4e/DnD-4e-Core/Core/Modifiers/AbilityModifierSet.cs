@@ -15,6 +15,20 @@ namespace DnD_4e.Core.Modifiers
 				return Base + Modifiers.Values.Aggregate((sum, set) => sum + set);
 			}
 		}
+		public override AbilitySet ResultNoTemp
+		{
+			get
+			{
+				return Base + Modifiers.Aggregate(new AbilitySet(), (total, kvp) =>
+				{
+					if (!IsModifierTemporary(kvp.Key))
+					{
+						return total + kvp.Value;
+					}
+					return total;
+				});
+			}
+		}
 
 		public AbilityModifierSet(AbilitySet set) : base(set)
 		{ }

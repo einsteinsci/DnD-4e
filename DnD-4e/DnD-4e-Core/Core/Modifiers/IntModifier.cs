@@ -15,8 +15,27 @@ namespace DnD_4e.Core.Modifiers
 				return Base + Modifiers.Values.Aggregate((sum, i) => sum + i);
 			}
 		}
+		public override int ResultNoTemp
+		{
+			get
+			{
+				return Base + Modifiers.Aggregate(0, (total, kvp) =>
+				{
+					if (!IsModifierTemporary(kvp.Key))
+					{
+						return total + kvp.Value;
+					}
+					return total;
+				});
+			}
+		}
 
 		public IntModifier(int i) : base(i)
 		{ }
+
+		public override string ToString()
+		{
+			return "[Base: " + Base.ToString() + "] " + Modifiers.ToString();
+		}
 	}
 }

@@ -362,5 +362,18 @@ namespace DnD_4e.Core.Skills
 			}
 		}
 		#endregion
+
+		public override string ToString()
+		{
+			string res = "Trained in: ";
+			foreach (SkillType type in Keys)
+			{
+				if (IsTrained(type))
+				{
+					res += type.ToString() + ", ";
+				}
+			}
+			return res.TrimEnd(',');
+		}
 	}
 }

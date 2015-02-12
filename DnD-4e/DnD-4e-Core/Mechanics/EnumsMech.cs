@@ -25,4 +25,12 @@ namespace DnD_4e.Mechanics
 		LowLightVision,
 		Darkvision
 	}
+
+	public enum Defense
+	{
+		ArmorClass = 0,
+		Fortitude,
+		Reflex,
+		Will
+	}
 }

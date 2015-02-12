@@ -37,5 +37,10 @@ namespace DnD_4e.Powers
 			Amount = amount;
 			Type = type;
 		}
+
+		public override string ToString()
+		{
+			return Amount.ToString() + " " + Type.ToString().ToLower() + " damage";
+		}
 	}
 }

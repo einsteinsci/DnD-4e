@@ -8,17 +8,6 @@ using DnD_4e.Core.Modifiers;
 
 namespace DnD_4e.Mechanics
 {
-	public enum DieType
-	{
-		d4 = 4,
-		d6 = 6,
-		d8 = 8,
-		d10 = 10,
-		d12 = 12,
-		d20 = 20,
-		d100 = 100 // pair of d10's
-	}
-
 	public static class DieRoller
 	{
 		public const int CRIT = 20;
@@ -44,13 +33,22 @@ namespace DnD_4e.Mechanics
 		{
 			return Rand.Next((int)type) + 1;
 		}
-		public static int Roll(DieType type, int bonus)
+		public static int Roll(DieSetup setup)
 		{
-			return Roll(type) + bonus;
+			int total = 0;
+			for (int i = 0; i < setup.Count; i++)
+			{
+				total += Roll(setup.Type);
+			}
+			return total;
 		}
-		public static int Roll(DieType type, IntModifier mod)
+		public static int Roll(DieSetup setup, int bonus)
 		{
-			return Roll(type, mod.Result);
+			return Roll(setup) + bonus;
+		}
+		public static int Roll(DieSetup setup, IntModifier mod)
+		{
+			return Roll(setup, mod.Result);
 		}
 
 		public static int AttackRoll(int bonus, out bool crit)
@@ -64,13 +62,17 @@ namespace DnD_4e.Mechanics
 			return AttackRoll(mod.Result, out crit);
 		}
 
-		public static bool Beat(DieType type, IntModifier mod, int valueToBeat)
-		{
-			return Roll(type, mod) >= valueToBeat;
-		}
 		public static bool Beat(DieType type, int bonus, int valueToBeat)
 		{
-			return Roll(type, bonus) >= valueToBeat;
+			return Beat(type, 1, bonus, valueToBeat);
+		}
+		public static bool Beat(DieType type, int count, int bonus, int valueToBeat)
+		{
+			return Roll(type, count, bonus) >= valueToBeat;
+		}
+		public static bool Beat(DieType type, int count, IntModifier mod, int valueToBeat)
+		{
+			return Beat(type, count, mod.Result, valueToBeat);
 		}
 	}
 }

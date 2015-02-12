@@ -189,9 +189,33 @@ namespace DnD_4e.Core
 
 		public override string ToString()
 		{
-			return "STR: " + Str + "\tCON: " + Con +
-				"\nDEX: " + Dex + "\tINT: " + Int +
-				"\nWIS: " + Wis + "\tCHA: " + Cha;
+			string res = "";
+			if (Str != 0)
+			{
+				res += "STR: " + Str.ToString() + "\n";
+			}
+			if (Con != 0)
+			{
+				res += "CON: " + Con.ToString() + "\n";
+			}
+			if (Dex != 0)
+			{
+				res += "DEX: " + Dex.ToString() + "\n";
+			}
+			if (Int != 0)
+			{
+				res += "INT: " + Int.ToString() + "\n";
+			}
+			if (Wis != 0)
+			{
+				res += "WIS: " + Wis.ToString() + "\n";
+			}
+			if (Cha != 0)
+			{
+				res += "CHA: " + Cha.ToString() + "\n";
+			}
+
+			return res;
 		}
 	}
 }
