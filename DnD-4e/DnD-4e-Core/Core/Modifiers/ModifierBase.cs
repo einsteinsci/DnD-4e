@@ -8,6 +8,8 @@ namespace DnD_4e.Core.Modifiers
 {
 	public abstract class ModifierBase<T>
 	{
+		public const string TEMP_MODIFIER_PREFIX = "temp.";
+
 		public T Base
 		{ get; set; }
 
@@ -21,6 +23,11 @@ namespace DnD_4e.Core.Modifiers
 		{
 			Base = baseVal;
 			Modifiers = new Dictionary<string, T>();
+		}
+
+		public bool IsModifierTemporary(string key)
+		{
+			return key.StartsWith(TEMP_MODIFIER_PREFIX, StringComparison.CurrentCultureIgnoreCase);
 		}
 	}
 }

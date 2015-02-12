@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DnD_4e.Core;
+using DnD_4e.Mechanics;
 using DnD_4e.Races;
 
 namespace DnD_4e.Util

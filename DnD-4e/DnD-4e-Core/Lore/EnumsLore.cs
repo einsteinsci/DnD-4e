@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DnD_4e_Core.Lore
+/// <summary>
+/// Misc. Lore-related enums.
+/// </summary>
+namespace DnD_4e.Lore
 {
 	public enum Languages
 	{
@@ -18,5 +21,15 @@ namespace DnD_4e_Core.Lore
 		Primordial,
 		Supernal,
 		Abyssal,
+	}
+
+	public enum Origin
+	{
+		Natural = 0,
+		Fey,
+		Shadow,
+		Astral,
+		Elemental,
+		Abberant
 	}
 }

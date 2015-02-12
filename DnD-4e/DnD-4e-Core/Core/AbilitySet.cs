@@ -30,8 +30,62 @@ namespace DnD_4e.Core
 		public int Cha
 		{ get; set; }
 
+		public int this[AbilityScoreType score]
+		{
+			get
+			{
+				switch (score)
+				{
+				case AbilityScoreType.Str:
+					return Str;
+				case AbilityScoreType.Con:
+					return Con;
+				case AbilityScoreType.Dex:
+					return Dex;
+				case AbilityScoreType.Int:
+					return Int;
+				case AbilityScoreType.Wis:
+					return Wis;
+				case AbilityScoreType.Cha:
+					return Cha;
+				default:
+					throw new ArgumentOutOfRangeException("Not a valid ability score");
+				}
+			}
+			set
+			{
+				switch (score)
+				{
+				case AbilityScoreType.Str:
+					Str = value;
+					return;
+				case AbilityScoreType.Con:
+					Con = value;
+					return;
+				case AbilityScoreType.Dex:
+					Dex = value;
+					return;
+				case AbilityScoreType.Int:
+					Int = value;
+					return;
+				case AbilityScoreType.Wis:
+					Wis = value;
+					return;
+				case AbilityScoreType.Cha:
+					Cha = value;
+					return;
+				default:
+					throw new ArgumentOutOfRangeException("Not a valid ability score");
+				}
+			}
+		}
+
 		public AbilitySet() : this(0, 0, 0, 0, 0, 0)
 		{ }
+		public AbilitySet(AbilityScoreType score, int amount) : this()
+		{
+			this[score] = amount;
+		}
 		public AbilitySet(int str, int con, int dex, int _int, int wis, int cha)
 		{
 			Str = str;

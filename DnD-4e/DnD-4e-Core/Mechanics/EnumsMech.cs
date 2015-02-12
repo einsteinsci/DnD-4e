@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DnD_4e_Core.Mechanics
+/// <summary>
+/// Misc. Mechanics-related enums.
+/// </summary>
+namespace DnD_4e.Mechanics
 {
 	public enum EntitySize
 	{
@@ -14,5 +17,12 @@ namespace DnD_4e_Core.Mechanics
 		Large,
 		Huge,
 		Gargantuan,
+	}
+
+	public enum VisionType
+	{
+		Normal = 0,
+		LowLightVision,
+		Darkvision
 	}
 }
