@@ -64,15 +64,15 @@ namespace DnD_4e.Mechanics
 
 		public static bool Beat(DieType type, int bonus, int valueToBeat)
 		{
-			return Beat(type, 1, bonus, valueToBeat);
+			return Beat(new DieSetup(type), bonus, valueToBeat);
 		}
-		public static bool Beat(DieType type, int count, int bonus, int valueToBeat)
+		public static bool Beat(DieSetup setup, int bonus, int valueToBeat)
 		{
-			return Roll(type, count, bonus) >= valueToBeat;
+			return Roll(setup, bonus) >= valueToBeat;
 		}
-		public static bool Beat(DieType type, int count, IntModifier mod, int valueToBeat)
+		public static bool Beat(DieSetup setup, IntModifier mod, int valueToBeat)
 		{
-			return Beat(type, count, mod.Result, valueToBeat);
+			return Beat(setup, mod.Result, valueToBeat);
 		}
 	}
 }
