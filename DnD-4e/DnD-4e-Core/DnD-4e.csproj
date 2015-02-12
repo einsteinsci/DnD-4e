@@ -53,7 +53,10 @@
     <Compile Include="Build\Epic\IEpicDestiny.cs" />
     <Compile Include="Build\Feats\IFeat.cs" />
     <Compile Include="Entities\PlayerStatus.cs" />
-    <Compile Include="Events\PlayerEvent.cs" />
+    <Compile Include="Events\PlayerEventArgs.cs" />
+    <Compile Include="Events\PlayerEvents.cs" />
+    <Compile Include="Events\SaveEffectArgs.cs" />
+    <Compile Include="Events\SkillUsedEvent.cs" />
     <Compile Include="Lore\Cash.cs" />
     <Compile Include="Lore\EnumsLore.cs" />
     <Compile Include="Mechanics\DieSetup.cs" />

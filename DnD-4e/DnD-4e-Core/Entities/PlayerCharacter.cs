@@ -158,5 +158,9 @@ namespace DnD_4e.Entities
 		public event PlayerEvent OnActionPointUsed;
 		public event PlayerEvent OnDamageTaken;
 		public event PlayerEvent OnDamageHealed;
+		public event PlayerEvent OnHealingSurgeUsed;
+		public event PlayerEvent OnInitiativeRolled;
+		public event SkillUsedEvent OnSkillUsed;
+		public event 
 	}
 }

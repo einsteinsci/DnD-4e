@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using DnD_4e.Entities;
+using DnD_4e.Mechanics;
 
 namespace DnD_4e.Events
 {
-	public delegate void PlayerEvent(PlayerCharacter player, List<Entity> allies, List<Entity> enemies);
+	public class SaveEffectArgs : PlayerEventArgs
+	{
+		public IStatusEffect savedEffect
+		{ get; private set; }
+	}
 }
