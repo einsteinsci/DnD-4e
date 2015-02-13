@@ -53,9 +53,12 @@
     <Compile Include="Build\Epic\IEpicDestiny.cs" />
     <Compile Include="Build\Feats\IFeat.cs" />
     <Compile Include="Entities\PlayerStatus.cs" />
+    <Compile Include="Events\DamageRollEventArgs.cs" />
+    <Compile Include="Events\PostAttackRollEventArgs.cs" />
     <Compile Include="Events\AttackRollEventArgs.cs" />
     <Compile Include="Events\PlayerEventArgs.cs" />
     <Compile Include="Events\PlayerEvents.cs" />
+    <Compile Include="Events\PostDamageRollEventArgs.cs" />
     <Compile Include="Events\SaveEffectArgs.cs" />
     <Compile Include="Events\SkillUsedEvent.cs" />
     <Compile Include="Lore\Cash.cs" />
