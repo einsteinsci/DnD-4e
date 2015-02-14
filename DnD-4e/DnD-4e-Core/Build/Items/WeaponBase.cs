@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DnD_4e.Build.Items.MagicItem;
+using DnD_4e.Build.Items.MagicItems;
 using DnD_4e.Build.Powers;
+using DnD_4e.Events;
 using DnD_4e.Lore;
 using DnD_4e.Mechanics;
 
@@ -32,9 +33,19 @@ namespace DnD_4e.Build.Items
 		Sling,
 	}
 
+	public enum WeaponProficiencyLevel
+	{
+		Simple,
+		Military,
+		Superior
+	}
+
 	public abstract class WeaponBase : IItem
 	{
 		public abstract string Name
+		{ get; }
+
+		public abstract WeaponProficiencyLevel ProficiencyLevel
 		{ get; }
 
 		public abstract WeaponHandedness Handedness
@@ -65,7 +76,7 @@ namespace DnD_4e.Build.Items
 		public abstract DieSetup DamageRoll
 		{ get; }
 
-		public MagicWeapon MagicItem
+		public MagicWeapon Enchantment
 		{ get; set; }
 
 		public abstract Cash Price
@@ -81,5 +92,10 @@ namespace DnD_4e.Build.Items
 				return null; // BasicAttack will be coming later
 			}
 		}
+
+		public virtual void OnItemLoad(PlayerEventArgs e)
+		{ }
+		public virtual void OnItemUnload(PlayerEventArgs e)
+		{ }
 	}
 }

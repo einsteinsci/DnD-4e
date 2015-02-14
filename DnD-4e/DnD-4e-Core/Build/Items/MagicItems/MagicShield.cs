@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DnD_4e.Build.Items.MagicItem
+namespace DnD_4e.Build.Items.MagicItems
 {
 	public abstract class MagicShield : ArmsSlotMagicItem
 	{

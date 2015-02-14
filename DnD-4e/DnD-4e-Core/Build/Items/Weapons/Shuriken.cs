@@ -10,6 +10,14 @@ namespace DnD_4e.Build.Items.Weapons
 {
 	public class Shuriken : RangedWeapon
 	{
+		public override WeaponProficiencyLevel ProficiencyLevel
+		{
+			get
+			{
+				return WeaponProficiencyLevel.Superior;
+			}
+		}
+
 		public override DieSetup DamageRoll
 		{
 			get

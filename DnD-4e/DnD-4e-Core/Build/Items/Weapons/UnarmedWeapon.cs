@@ -10,6 +10,22 @@ namespace DnD_4e.Build.Items.Weapons
 {
 	public class UnarmedWeapon : MeleeWeapon
 	{
+		public override int Brutal
+		{
+			get
+			{
+				return 0;
+			}
+		}
+
+		public override WeaponProficiencyLevel ProficiencyLevel
+		{
+			get
+			{
+				return WeaponProficiencyLevel.Simple;
+			}
+		}
+
 		public override DieSetup DamageRoll
 		{
 			get
@@ -95,6 +111,14 @@ namespace DnD_4e.Build.Items.Weapons
 			get
 			{
 				return 0;
+			}
+		}
+
+		public override bool Defensive
+		{
+			get
+			{
+				return false;
 			}
 		}
 	}

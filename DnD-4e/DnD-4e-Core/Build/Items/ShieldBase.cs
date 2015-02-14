@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using DnD_4e.Build.Items.MagicItem;
+using DnD_4e.Build.Items.MagicItems;
+using DnD_4e.Events;
 using DnD_4e.Lore;
 
 namespace DnD_4e.Build.Items
@@ -42,5 +43,11 @@ namespace DnD_4e.Build.Items
 
 		public MagicShield MagicItem
 		{ get; set; }
+
+		public virtual void OnItemLoad(PlayerEventArgs e)
+		{ }
+
+		public virtual void OnItemUnload(PlayerEventArgs e)
+		{ }
 	}
 }

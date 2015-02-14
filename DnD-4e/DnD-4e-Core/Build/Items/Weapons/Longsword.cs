@@ -99,6 +99,30 @@ namespace DnD_4e.Build.Items.Weapons
 				return 4;
 			}
 		}
+
+		public override int Brutal
+		{
+			get
+			{
+				return 0;
+			}
+		}
+
+		public override bool Defensive
+		{
+			get
+			{
+				return false;
+			}
+		}
+
+		public override WeaponProficiencyLevel ProficiencyLevel
+		{
+			get
+			{
+				return WeaponProficiencyLevel.Military;
+			}
+		}
 		#endregion
 	}
 }

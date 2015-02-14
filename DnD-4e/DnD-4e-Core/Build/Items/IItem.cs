@@ -21,5 +21,8 @@ namespace DnD_4e.Build.Items
 		/// </summary>
 		int Weight
 		{ get; }
+
+		void OnItemLoad(PlayerEventArgs e);
+		void OnItemUnload(PlayerEventArgs e);
 	}
 }

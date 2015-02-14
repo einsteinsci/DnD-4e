@@ -191,7 +191,7 @@ namespace DnD_4e.Entities
 		public event PostAttackRollEvent OnAttackRollFinished;
 		public event PreDamageRollEvent OnDamageRoll;
 		public event PostDamageRollEvent OnDamageRollFinished;
-		public event PlayerEvent OnItemLoaded;
+		public event PlayerEvent OnCritScored;
 #pragma warning restore CS0067
 
 		// TODO: Stuff here
@@ -202,7 +202,8 @@ namespace DnD_4e.Entities
 
 		public void PostInit()
 		{
-			OnItemLoaded(new PlayerEventArgs(this, Allies, null));
+			PlayerEventArgs e = new PlayerEventArgs(this, Allies, null);
+
 		}
 	}
 }
