@@ -18,5 +18,12 @@ namespace DnD_4e.Events
 
 		public List<Entity> Enemies
 		{ get; private set; }
+
+		public PlayerEventArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies)
+		{
+			Player = pc;
+			Allies = allies;
+			Enemies = enemies;
+		}
 	}
 }

@@ -176,6 +176,14 @@ namespace DnD_4e.Lore
 			return new Cash(0, 0, 0, 0, cp);
 		}
 
+		public static Cash Zero
+		{
+			get
+			{
+				return new Cash(0, 0, 0, 0, 0);
+			}
+		}
+
 		public override string ToString()
 		{
 			string res = "";

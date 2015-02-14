@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using DnD_4e.Entities;
+using DnD_4e.Events.Powers;
 
 namespace DnD_4e.Events
 {
@@ -13,6 +13,6 @@ namespace DnD_4e.Events
 	public delegate void SaveEffectEvent(SaveEffectArgs e);
 	public delegate void PreAttackRollEvent(AttackRollEventArgs e);
 	public delegate void PostAttackRollEvent(PostAttackRollEventArgs e);
-	public delegate void DamageRollEvent(DamageRollEventArgs e);
+	public delegate void PreDamageRollEvent(DamageRollEventArgs e);
 	public delegate void PostDamageRollEvent(PostDamageRollEventArgs e);
 }

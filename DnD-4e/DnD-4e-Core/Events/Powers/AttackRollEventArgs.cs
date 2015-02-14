@@ -8,7 +8,7 @@ using DnD_4e.Build.Powers;
 using DnD_4e.Core.Modifiers;
 using DnD_4e.Entities;
 
-namespace DnD_4e.Events
+namespace DnD_4e.Events.Powers
 {
 	public class AttackRollEventArgs : PlayerEventArgs
 	{
@@ -20,5 +20,13 @@ namespace DnD_4e.Events
 
 		public IPower Power
 		{ get; private set; }
+
+		public AttackRollEventArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies, 
+			Entity targeted, IntModifier bonus, IPower power) : base(pc, allies, enemies)
+		{
+			Targeted = targeted;
+			Bonus = bonus;
+			Power = power;
+		}
 	}
 }

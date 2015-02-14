@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DnD_4e.Core.Skills;
+using DnD_4e.Entities;
 
 namespace DnD_4e.Events
 {
@@ -12,5 +13,11 @@ namespace DnD_4e.Events
 	{
 		public SkillType SkillUsed
 		{ get; private set; }
+
+		public SkillUsedEventArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies,
+			SkillType skill) : base(pc, allies, enemies)
+		{
+			SkillUsed = skill;
+		}
 	}
 }

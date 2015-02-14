@@ -33,4 +33,15 @@ namespace DnD_4e.Mechanics
 		Reflex,
 		Will
 	}
+
+	public enum ActionType
+	{
+		None = 0,
+		Free,
+		ImmediateInterrupt,
+		ImmediateReaction,
+		Minor,
+		Move,
+		Standard
+	}
 }

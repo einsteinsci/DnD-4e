@@ -155,12 +155,32 @@ namespace DnD_4e.Entities
 		public List<IRitual> Rituals
 		{ get; private set; }
 
+		public List<Entity> Allies
+		{ get; private set; }
+
+#pragma warning	disable CS0067 // Yes, I know I haven't used these yet.
 		public event PlayerEvent OnActionPointUsed;
 		public event PlayerEvent OnDamageTaken;
 		public event PlayerEvent OnDamageHealed;
 		public event PlayerEvent OnHealingSurgeUsed;
 		public event PlayerEvent OnInitiativeRolled;
 		public event SkillUsedEvent OnSkillUsed;
-		public event 
+		public event PreAttackRollEvent OnAttackRoll;
+		public event PostAttackRollEvent OnAttackRollFinished;
+		public event PreDamageRollEvent OnDamageRoll;
+		public event PostDamageRollEvent OnDamageRollFinished;
+		public event PlayerEvent OnItemLoaded;
+#pragma warning restore CS0067
+
+		// TODO: Stuff here
+		public PlayerCharacter()
+		{
+
+		}
+
+		public void PostInit()
+		{
+			OnItemLoaded(new PlayerEventArgs(this, Allies, null));
+		}
 	}
 }

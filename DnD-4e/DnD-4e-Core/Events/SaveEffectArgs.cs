@@ -4,13 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using DnD_4e.Entities;
 using DnD_4e.Mechanics;
 
 namespace DnD_4e.Events
 {
 	public class SaveEffectArgs : PlayerEventArgs
 	{
-		public IStatusEffect savedEffect
+		public IStatusEffect SavedEffect
 		{ get; private set; }
+
+		public SaveEffectArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies,
+			IStatusEffect effect) : base(pc, allies, enemies)
+		{
+			SavedEffect = effect;
+		}
 	}
 }
