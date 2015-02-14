@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 using DnD_4e.Entities;
 
-namespace DnD_4e.Events
+namespace DnD_4e.Events.Powers
 {
-	public class AttackedEventArgs : PlayerEventArgs
+	public class DamageTakenEventArgs : PlayerEventArgs
 	{
 		public Creature Attacker
 		{ get; private set; }
 
-		public AttackedEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies, Creature attacker) :
-			base(pc, allies, enemies)
+		public DamageTakenEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies,
+			Creature attacker) : base(pc, allies, enemies)
 		{
 			Attacker = attacker;
 		}

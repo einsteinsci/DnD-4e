@@ -18,6 +18,9 @@ using DnD_4e.Core.Skills;
 using DnD_4e.Lore;
 using DnD_4e.Util;
 using DnD_4e.Events;
+using DnD_4e.Build.Items;
+using DnD_4e.Powers;
+using DnD_4e.Mechanics;
 
 namespace DnD_4e.Entities
 {
@@ -28,7 +31,7 @@ namespace DnD_4e.Entities
 		Epic
 	}
 
-	public sealed class PlayerCharacter
+	public sealed partial class PlayerCharacter
 	{
 		public string Name
 		{ get; set; }
@@ -43,10 +46,10 @@ namespace DnD_4e.Entities
 		{ get; private set; }
 
 		public IParagonPath ParagonPath
-		{ get; private set; }
+		{ get; set; }
 
 		public IEpicDestiny EpicDestiny
-		{ get; private set; }
+		{ get; set; }
 
 		public int Level
 		{ get; private set; }
@@ -117,6 +120,15 @@ namespace DnD_4e.Entities
 
 		public IntModifier MaxHealingSurges
 		{ get; private set; }
+
+		public Dictionary<string, Resistance> Resistances // yep, there are temp resistances
+		{ get; private set; }
+
+		public Dictionary<string, Resistance> Vulnerabilities // pretty much all of these will be temp
+		{ get; private set; }
+
+		public Dictionary<string, IStatusEffect> Immunities // of course temp immunities too
+		{ get; private set; }
 		
 		public PlayerStatus Status
 		{ get; private set; }
@@ -124,43 +136,53 @@ namespace DnD_4e.Entities
 		public List<IPower> Powers
 		{ get; private set; }
 
+		public List<WeaponBase> Weapons
+		{ get; private set; }
+
+		public ArmorBase Armor
+		{ get; set; }
+
 		public List<IPower> ItemPowers
 		{ get; private set; }
 
 		public List<Languages> Languages
 		{ get; private set; }
 
+		public IntModifier CarryingCapacityBuffer // Think Bag of Holding / Handy Haversack
+		{ get; private set; }
 		public int CarryingCapacityNormal
 		{
 			get
 			{
-				return Abilities.ResultNoTemp.Str * 10;
+				return Abilities.ResultNoTemp.Str * 10 + CarryingCapacityBuffer.Result;
 			}
 		}
 		public int CarryingCapacityHeavy
 		{
 			get
 			{
-				return Abilities.ResultNoTemp.Str * 20;
+				return Abilities.ResultNoTemp.Str * 20 + CarryingCapacityBuffer.Result;
 			}
 		}
 		public int CarryingCapacityMaximum
 		{
 			get
 			{
-				return Abilities.ResultNoTemp.Str * 50;
+				return Abilities.ResultNoTemp.Str * 50 + CarryingCapacityBuffer.Result;
 			}
 		}
 
 		public List<IRitual> Rituals
 		{ get; private set; }
 
-		public List<Entity> Allies
+		public List<Creature> Allies
 		{ get; private set; }
 
 #pragma warning	disable CS0067 // Yes, I know I haven't used these yet.
 		public event PlayerEvent OnActionPointUsed;
-		public event PlayerEvent OnDamageTaken;
+		public event AttackedEvent OnDamageTaken;
+		public event AttackedEvent OnBloodied;
+		public event AttackedEvent OnDying;
 		public event PlayerEvent OnDamageHealed;
 		public event PlayerEvent OnHealingSurgeUsed;
 		public event PlayerEvent OnInitiativeRolled;

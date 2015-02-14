@@ -8,22 +8,31 @@ using DnD_4e.Entities;
 
 namespace DnD_4e.Events
 {
-	public class PlayerEventArgs
+	public class PlayerEventArgs : EventArgs
 	{
 		public PlayerCharacter Player
 		{ get; private set; }
 
-		public List<Entity> Allies
+		public List<Creature> Allies
 		{ get; private set; }
 
-		public List<Entity> Enemies
+		public List<Creature> Enemies
 		{ get; private set; }
 
-		public PlayerEventArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies)
+		public bool Cancelled
+		{ get; private set; }
+
+		public PlayerEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies)
 		{
 			Player = pc;
 			Allies = allies;
 			Enemies = enemies;
+			Cancelled = false;
+		}
+
+		public void Cancel()
+		{
+			Cancelled = true;
 		}
 	}
 }

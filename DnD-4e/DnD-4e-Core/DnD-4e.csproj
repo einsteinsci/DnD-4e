@@ -77,6 +77,7 @@
     <Compile Include="Entities\PlayerStatus.cs" />
     <Compile Include="Events\AttackedEventArgs.cs" />
     <Compile Include="Events\Powers\DamageRollEventArgs.cs" />
+    <Compile Include="Events\Powers\DamageTakenEventArgs.cs" />
     <Compile Include="Events\Powers\EnemyKilledEventArgs.cs" />
     <Compile Include="Events\Powers\PostAttackRollEventArgs.cs" />
     <Compile Include="Events\Powers\AttackRollEventArgs.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Build\Powers\Damage.cs" />
     <Compile Include="Build\Powers\IPower.cs" />
     <Compile Include="Mechanics\IStatusEffect.cs" />
+    <Compile Include="Mechanics\Resistance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Build\Races\IRace.cs" />
     <Compile Include="Util\EntityUtil.cs" />

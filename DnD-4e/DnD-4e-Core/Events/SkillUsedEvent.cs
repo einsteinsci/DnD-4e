@@ -14,7 +14,7 @@ namespace DnD_4e.Events
 		public SkillType SkillUsed
 		{ get; private set; }
 
-		public SkillUsedEventArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies,
+		public SkillUsedEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies,
 			SkillType skill) : base(pc, allies, enemies)
 		{
 			SkillUsed = skill;

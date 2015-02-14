@@ -12,7 +12,7 @@ namespace DnD_4e.Events.Powers
 {
 	public class DamageRollEventArgs : PlayerEventArgs
 	{
-		public List<Entity> Targeted
+		public List<Creature> Targeted
 		{ get; private set; }
 
 		public IntModifier Bonus
@@ -24,8 +24,8 @@ namespace DnD_4e.Events.Powers
 		public IPower Power
 		{ get; private set; }
 
-		public DamageRollEventArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies, 
-			List<Entity> targeted, IntModifier bonus, DieSetup? setup, IPower power) : base(pc, allies, enemies)
+		public DamageRollEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies, 
+			List<Creature> targeted, IntModifier bonus, DieSetup? setup, IPower power) : base(pc, allies, enemies)
 		{
 			Targeted = targeted;
 			Bonus = bonus;

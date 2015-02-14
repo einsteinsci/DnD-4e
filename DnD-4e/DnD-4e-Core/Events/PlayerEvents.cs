@@ -15,4 +15,5 @@ namespace DnD_4e.Events
 	public delegate void PostAttackRollEvent(PostAttackRollEventArgs e);
 	public delegate void PreDamageRollEvent(DamageRollEventArgs e);
 	public delegate void PostDamageRollEvent(PostDamageRollEventArgs e);
+	public delegate void AttackedEvent(AttackedEventArgs e);
 }

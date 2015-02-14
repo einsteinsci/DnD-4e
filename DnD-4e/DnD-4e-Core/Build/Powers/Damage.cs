@@ -26,21 +26,21 @@ namespace DnD_4e.Powers
 		public int Amount
 		{ get; set; }
 
-		public DmgType Type
+		public DmgType[] Types
 		{ get; set; }
 
 		public Damage(int amount) : this(amount, DmgType.Physical)
 		{ }
 
-		public Damage(int amount, DmgType type)
+		public Damage(int amount, params DmgType[] types)
 		{
 			Amount = amount;
-			Type = type;
+			Types = types;
 		}
 
 		public override string ToString()
 		{
-			return Amount.ToString() + " " + Type.ToString().ToLower() + " damage";
+			return Amount.ToString() + " " + Types.ToString().ToLower() + " damage";
 		}
 	}
 }

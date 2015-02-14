@@ -14,7 +14,7 @@ namespace DnD_4e.Events
 		public IStatusEffect SavedEffect
 		{ get; private set; }
 
-		public SaveEffectArgs(PlayerCharacter pc, List<Entity> allies, List<Entity> enemies,
+		public SaveEffectArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies,
 			IStatusEffect effect) : base(pc, allies, enemies)
 		{
 			SavedEffect = effect;
