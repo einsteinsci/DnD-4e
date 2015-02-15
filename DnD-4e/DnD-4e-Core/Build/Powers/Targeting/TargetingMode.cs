@@ -40,7 +40,7 @@ namespace DnD_4e.Build.Powers.Targeting
 		public abstract bool ChooseTargets
 		{ get; }
 
-		public abstract bool IsTargetValid(IMapGrid map, Creature user, Creature target);
-		public abstract bool AreTargetsValid(IMapGrid map, Creature user, List<Creature> targets);
+		public abstract bool IsTargetValid(IMapGrid map, Creature user, Creature target, GridSquare origin);
+		public abstract bool AreTargetsValid(IMapGrid map, Creature user, List<Creature> targets, GridSquare origin);
 	}
 }

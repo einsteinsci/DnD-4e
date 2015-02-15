@@ -101,6 +101,7 @@
     <Compile Include="HouseRules.cs" />
     <Compile Include="Lore\Cash.cs" />
     <Compile Include="Lore\EnumsLore.cs" />
+    <Compile Include="Map\GridSquare.cs" />
     <Compile Include="Map\IMapGrid.cs" />
     <Compile Include="Mechanics\CritBonus.cs" />
     <Compile Include="Mechanics\DieSetup.cs" />
