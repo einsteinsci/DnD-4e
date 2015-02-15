@@ -18,6 +18,7 @@ using DnD_4e.Util;
 using DnD_4e.Events;
 using DnD_4e.Build.Items;
 using DnD_4e.Build.Items.MagicItems;
+using DnD_4e.Mechanics;
 
 namespace DnD_4e.Entities
 {
@@ -35,6 +36,13 @@ namespace DnD_4e.Entities
 
 		public IRace Race
 		{ get; private set; }
+		public override EntitySize Size
+		{
+			get
+			{
+				return Race.Size;
+			}
+		}
 
 		public IClass Class
 		{ get; private set; }

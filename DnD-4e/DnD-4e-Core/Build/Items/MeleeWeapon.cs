@@ -23,6 +23,13 @@ namespace DnD_4e.Build.Items
 
 		public abstract bool Reach
 		{ get; }
+		public int ReachLength
+		{
+			get
+			{
+				return Reach ? 2 : 1;
+			}
+		}
 
 		public abstract bool HighCrit
 		{ get; }

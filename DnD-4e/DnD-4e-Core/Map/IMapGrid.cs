@@ -11,5 +11,8 @@ namespace DnD_4e.Map
 	public interface IMapGrid
 	{
 		int WalkingDistance(Creature a, Creature b);
+
+		bool LineOfSight(Creature looker, Creature target);
+		bool LineOfEffect(Creature attacker, Creature target);
 	}
 }

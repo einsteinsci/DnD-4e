@@ -8,6 +8,7 @@ using DnD_4e.Core.Modifiers;
 using DnD_4e.Core.Skills;
 using DnD_4e.Lore;
 using DnD_4e.Mechanics;
+using DnD_4e.Util;
 
 namespace DnD_4e.Entities
 {
@@ -23,6 +24,16 @@ namespace DnD_4e.Entities
 			get
 			{
 				return (Tier)((Level - 1) / 10);
+			}
+		}
+
+		public abstract EntitySize Size
+		{ get; }
+		public int Reach
+		{
+			get
+			{
+				return Size.Reach();
 			}
 		}
 

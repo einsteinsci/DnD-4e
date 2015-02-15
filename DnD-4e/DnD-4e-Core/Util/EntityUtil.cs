@@ -30,6 +30,26 @@ namespace DnD_4e.Util
 				return -1;
 			}
 		}
+		public static int Reach(this EntitySize size)
+		{
+			switch (size)
+			{
+			case EntitySize.Tiny:
+				return 0;
+			case EntitySize.Small:
+				return 1;
+			case EntitySize.Medium:
+				return 1;
+			case EntitySize.Large:
+				return 2;
+			case EntitySize.Huge:
+				return 3;
+			case EntitySize.Gargantuan:
+				return 4;
+			default:
+				return -1;
+			}
+		}
 
 		public static int[] FeatLevels()
 		{
