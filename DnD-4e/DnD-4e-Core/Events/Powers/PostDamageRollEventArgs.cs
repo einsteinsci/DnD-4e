@@ -8,7 +8,6 @@ using DnD_4e.Build.Powers;
 using DnD_4e.Core.Modifiers;
 using DnD_4e.Entities;
 using DnD_4e.Mechanics;
-using DnD_4e.Powers;
 
 namespace DnD_4e.Events.Powers
 {

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DnD_4e.Build.Powers;
 using DnD_4e.Events;
 using DnD_4e.Mechanics;
-using DnD_4e.Powers;
 
 namespace DnD_4e.Entities
 {
@@ -149,11 +148,11 @@ namespace DnD_4e.Entities
 
 				if (HitPoints < -Player.BloodiedValue) // DEAD
 				{
-					Player.OnDying(e); // call it again. Think ring of the phoenix
+					Player.OnDying(e); // call it again. Think ring/cloak of the phoenix
 				}
 			}
 
-			public void Heal(int amount, Creature healer)
+			public override void Heal(int amount, Creature healer)
 			{
 				PlayerEventArgs e = new PlayerEventArgs(Player, Player.Allies, Enemies);
 				Player.OnDamageHealed(e);

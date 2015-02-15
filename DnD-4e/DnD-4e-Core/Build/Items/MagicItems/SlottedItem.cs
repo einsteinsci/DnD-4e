@@ -8,14 +8,13 @@ namespace DnD_4e.Build.Items.MagicItems
 {
 	public enum ItemSlot
 	{
-		Misc,
+		None = 0,
 		Head,
 		Neck,
 		Arms,
 		Waist,
 		RingLeft,
 		RingRight,
-		Armor,
 		Feet,
 		Tatoo,
 	}

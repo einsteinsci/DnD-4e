@@ -66,8 +66,11 @@
     <Compile Include="Build\Items\Weapons\Longsword.cs" />
     <Compile Include="Build\Items\Weapons\Shuriken.cs" />
     <Compile Include="Build\Items\Weapons\UnarmedWeapon.cs" />
+    <Compile Include="Build\Powers\AttackPower.cs" />
     <Compile Include="Build\Powers\EnumsPowers.cs" />
     <Compile Include="Build\Powers\Healing.cs" />
+    <Compile Include="Build\Powers\Targeting\MeleeTargeting.cs" />
+    <Compile Include="Build\Powers\Targeting\TargetingMode.cs" />
     <Compile Include="Build\Rituals\IRitual.cs" />
     <Compile Include="Core\Modifiers\AbilityModifierSet.cs" />
     <Compile Include="Core\AbilitySet.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="HouseRules.cs" />
     <Compile Include="Lore\Cash.cs" />
     <Compile Include="Lore\EnumsLore.cs" />
+    <Compile Include="Map\IMapGrid.cs" />
     <Compile Include="Mechanics\CritBonus.cs" />
     <Compile Include="Mechanics\DieSetup.cs" />
     <Compile Include="Mechanics\EnumsMech.cs" />

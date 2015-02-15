@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using DnD_4e.Powers;
+using DnD_4e.Build.Powers;
 
 namespace DnD_4e.Mechanics
 {

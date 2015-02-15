@@ -13,14 +13,10 @@ using DnD_4e.Build.Rituals;
 using DnD_4e.Build.Powers;
 
 using DnD_4e.Core.Modifiers;
-using DnD_4e.Core.Skills;
 
-using DnD_4e.Lore;
 using DnD_4e.Util;
 using DnD_4e.Events;
 using DnD_4e.Build.Items;
-using DnD_4e.Powers;
-using DnD_4e.Mechanics;
 using DnD_4e.Build.Items.MagicItems;
 
 namespace DnD_4e.Entities
@@ -59,7 +55,7 @@ namespace DnD_4e.Entities
 			}
 		}
 
-		public Dictionary<int, IFeat> Feats
+		public List<IFeat> Feats
 		{ get; private set; }
 
 		public List<WeaponBase> WeaponProficiencies
@@ -94,8 +90,15 @@ namespace DnD_4e.Entities
 		public ArmorBase Armor
 		{ get; set; }
 
-		public List<SlottedItem> SlotItems
+		public Dictionary<ItemSlot, SlottedItem> SlotItems
 		{ get; private set; }
+		public bool IsWearingShield
+		{
+			get
+			{
+				return SlotItems[ItemSlot.Arms] is MagicShield;
+			}
+		}
 
 		public List<PowerBase> ItemPowers
 		{ get; private set; }
@@ -146,7 +149,13 @@ namespace DnD_4e.Entities
 		// TODO: Stuff here
 		public PlayerCharacter() : base()
 		{
-
+			Feats = new List<IFeat>();
+			Weapons = new List<WeaponBase>();
+			Implements = new List<MagicImplement>();
+			WeaponProficiencies = new List<WeaponBase>();
+			ArmorProficiencies = new List<ArmorType>();
+			SlotItems = new Dictionary<ItemSlot, SlottedItem>();
+			ItemPowers = new List<PowerBase>();
 		}
 
 		// As if the player put on the items, learned the powers, feats, etc. for the first time.
@@ -155,7 +164,7 @@ namespace DnD_4e.Entities
 			// TODO: FEATS
 
 			PlayerEventArgs e = new PlayerEventArgs(this, Allies, null);
-			foreach (SlottedItem item in SlotItems)
+			foreach (SlottedItem item in SlotItems.Values)
 			{
 				item.OnItemLoadEquip(e);
 			}
