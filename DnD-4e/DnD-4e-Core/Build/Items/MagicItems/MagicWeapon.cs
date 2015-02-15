@@ -13,9 +13,6 @@ namespace DnD_4e.Build.Items.MagicItems
 		public abstract CritBonus CritBonus
 		{ get; }
 
-		public abstract List<WeaponGroup> ValidWeaponGroups
-		{ get; }
-
-		public abstract void OnAttack(PlayerEventArgs e);
+		public abstract bool IsValidForWeapon(WeaponBase weapon);
 	}
 }

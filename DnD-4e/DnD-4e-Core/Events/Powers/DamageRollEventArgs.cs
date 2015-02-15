@@ -21,11 +21,11 @@ namespace DnD_4e.Events.Powers
 		public DieSetup? DieSetup
 		{ get; private set; }
 
-		public IPower Power
+		public PowerBase Power
 		{ get; private set; }
 
 		public DamageRollEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies, 
-			List<Creature> targeted, IntModifier bonus, DieSetup? setup, IPower power) : base(pc, allies, enemies)
+			List<Creature> targeted, IntModifier bonus, DieSetup? setup, PowerBase power) : base(pc, allies, enemies)
 		{
 			Targeted = targeted;
 			Bonus = bonus;

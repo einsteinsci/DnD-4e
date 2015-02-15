@@ -22,17 +22,14 @@ namespace DnD_4e.Build.Items.MagicItems
 		public abstract string Name
 		{ get; }
 
-		public abstract List<IPower> Powers
-		{ get; }
+		public List<PowerBase> Powers
+		{ get; private set; }
 
 		public abstract Cash Price
 		{ get; }
 
 		public abstract int Weight
 		{ get; }
-
-		public abstract void OnItemLoaded(PlayerEventArgs e);
-		public abstract void OnItemRemoved(PlayerEventArgs e);
 
 		public int Level
 		{ get; set; }
@@ -49,6 +46,11 @@ namespace DnD_4e.Build.Items.MagicItems
 			{
 				return BonusByHalfTier(Level);
 			}
+		}
+
+		public MagicItem()
+		{
+			Powers = new List<PowerBase>();
 		}
 
 		public static int BonusByTier(int level)
@@ -74,7 +76,7 @@ namespace DnD_4e.Build.Items.MagicItems
 			return ((level - 1) / 5) + 1;
 		}
 
-		public abstract void OnItemLoad(PlayerEventArgs e);
-		public abstract void OnItemUnload(PlayerEventArgs e);
+		public abstract void OnItemLoadEquip(PlayerEventArgs e);
+		public abstract void OnItemUnequip(PlayerEventArgs e);
 	}
 }

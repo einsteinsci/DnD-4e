@@ -45,9 +45,14 @@
     <Compile Include="Build\Items\IItem.cs" />
     <Compile Include="Build\Items\MagicItems\ArmsSlotMagicItem.cs" />
     <Compile Include="Build\Items\MagicItems\MagicArmor.cs" />
+    <Compile Include="Build\Items\MagicItems\MagicImplement.cs" />
     <Compile Include="Build\Items\MagicItems\MagicShield.cs" />
     <Compile Include="Build\Items\MagicItems\NeckSlotMagicItem.cs" />
     <Compile Include="Build\Items\MagicItems\SlottedItem.cs" />
+    <Compile Include="Build\Items\MagicItems\SuperiorImplement\AccurateSuperiorProperty.cs" />
+    <Compile Include="Build\Items\MagicItems\SuperiorImplement\DeadlySuperiorProperty.cs" />
+    <Compile Include="Build\Items\MagicItems\SuperiorImplement\DistantSuperiorProperty.cs" />
+    <Compile Include="Build\Items\MagicItems\SuperiorImplement\SuperiorImplementPropertyBase.cs" />
     <Compile Include="Build\Items\MasterworkArmor.cs" />
     <Compile Include="Build\Items\RangedWeapon.cs" />
     <Compile Include="Build\Items\ShieldBase.cs" />
@@ -70,7 +75,8 @@
     <Compile Include="Core\Modifiers\ModifierBase.cs" />
     <Compile Include="Core\Skills\Skill.cs" />
     <Compile Include="Core\Skills\SkillSet.cs" />
-    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Creature.cs" />
+    <Compile Include="Entities\CreatureStatus.cs" />
     <Compile Include="Entities\PlayerCharacter.cs" />
     <Compile Include="Build\Classes\IClass.cs" />
     <Compile Include="Build\Epic\IEpicDestiny.cs" />
@@ -96,7 +102,7 @@
     <Compile Include="Mechanics\DieRoller.cs" />
     <Compile Include="Build\Paragon\IParagonPath.cs" />
     <Compile Include="Build\Powers\Damage.cs" />
-    <Compile Include="Build\Powers\IPower.cs" />
+    <Compile Include="Build\Powers\PowerBase.cs" />
     <Compile Include="Mechanics\IStatusEffect.cs" />
     <Compile Include="Mechanics\Resistance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

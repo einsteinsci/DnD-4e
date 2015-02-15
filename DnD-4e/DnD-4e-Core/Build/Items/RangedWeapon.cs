@@ -20,7 +20,15 @@ namespace DnD_4e.Build.Items
 			}
 		}
 
-		public ActionType Load
+		public abstract ActionType Load
 		{ get; }
+
+		public override bool IsRanged
+		{
+			get
+			{
+				return true;
+			}
+		}
 	}
 }

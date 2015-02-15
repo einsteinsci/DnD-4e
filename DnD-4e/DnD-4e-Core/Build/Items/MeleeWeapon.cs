@@ -50,8 +50,18 @@ namespace DnD_4e.Build.Items
 			return crits;
 		}
 
-		public override void OnItemLoad(PlayerEventArgs e)
+		public override bool IsRanged
 		{
+			get
+			{
+				return false;
+			}
+		}
+
+		public override void OnItemLoadEquip(PlayerEventArgs e)
+		{
+			base.OnItemLoadEquip(e);
+
 			if (Defensive)
 			{
 				// Only one Defensive modifier per player
@@ -59,8 +69,10 @@ namespace DnD_4e.Build.Items
 			}
 		}
 
-		public override void OnItemUnload(PlayerEventArgs e)
+		public override void OnItemUnequip(PlayerEventArgs e)
 		{
+			base.OnItemUnequip(e);
+
 			if (Defensive)
 			{
 				e.Player.ArmorClass.Modifiers.Remove(DEFENSIVE_MODIFIER);

@@ -21,7 +21,7 @@ namespace DnD_4e.Events.Powers
 		{ get; private set; }
 
 		public PostDamageRollEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies,
-			List<Creature> targeted, IntModifier bonus, DieSetup? setup, IPower power, int result, 
+			List<Creature> targeted, IntModifier bonus, DieSetup? setup, PowerBase power, int result, 
 			Damage damage) : base(pc, allies, enemies, targeted, bonus, setup, power) // this is getting ridiculous
 		{
 

@@ -44,10 +44,10 @@ namespace DnD_4e.Build.Items
 		public MagicShield MagicItem
 		{ get; set; }
 
-		public virtual void OnItemLoad(PlayerEventArgs e)
+		public virtual void OnItemLoadEquip(PlayerEventArgs e)
 		{ }
 
-		public virtual void OnItemUnload(PlayerEventArgs e)
+		public virtual void OnItemUnequip(PlayerEventArgs e)
 		{ }
 	}
 }

@@ -19,7 +19,7 @@ namespace DnD_4e.Events.Powers
 		{ get; private set; }
 
 		public PostAttackRollEventArgs(PlayerCharacter pc, List<Creature> allies, List<Creature> enemies,
-			Creature targeted, IntModifier bonus, IPower power, int rollResult, bool hit) : 
+			Creature targeted, IntModifier bonus, PowerBase power, int rollResult, bool hit) : 
 				base(pc, allies, enemies, targeted, bonus, power)
 		{
 			RollResult = rollResult;

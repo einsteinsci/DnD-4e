@@ -16,7 +16,8 @@ namespace DnD_4e.Build.Items.MagicItems
 		RingLeft,
 		RingRight,
 		Armor,
-		Feet
+		Feet,
+		Tatoo,
 	}
 
 	public abstract class SlottedItem : MagicItem

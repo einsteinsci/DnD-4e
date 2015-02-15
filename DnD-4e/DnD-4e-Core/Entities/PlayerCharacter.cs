@@ -21,6 +21,7 @@ using DnD_4e.Events;
 using DnD_4e.Build.Items;
 using DnD_4e.Powers;
 using DnD_4e.Mechanics;
+using DnD_4e.Build.Items.MagicItems;
 
 namespace DnD_4e.Entities
 {
@@ -31,12 +32,9 @@ namespace DnD_4e.Entities
 		Epic
 	}
 
-	public sealed partial class PlayerCharacter
+	public sealed partial class PlayerCharacter : Creature
 	{
-		public string Name
-		{ get; set; }
-
-		public string Player
+		public string HumanPlayer
 		{ get; set; }
 
 		public IRace Race
@@ -51,16 +49,6 @@ namespace DnD_4e.Entities
 		public IEpicDestiny EpicDestiny
 		{ get; set; }
 
-		public int Level
-		{ get; private set; }
-		public Tier Tier
-		{
-			get
-			{
-				return (Tier)((Level - 1)/ 10);
-			}
-		}
-
 		public int Experience
 		{ get; private set; }
 		public bool CanLevelUp
@@ -71,81 +59,45 @@ namespace DnD_4e.Entities
 			}
 		}
 
-		public IntModifier ArmorClass
-		{ get; private set; }
-
-		public IntModifier Fortitude
-		{ get; private set; }
-		public IntModifier Reflex
-		{ get; private set; }
-		public IntModifier Will
-		{ get; private set; }
-
-		public AbilityModifierSet Abilities
-		{ get; private set; }
-
 		public Dictionary<int, IFeat> Feats
 		{ get; private set; }
 
-		public SkillSet Skills
+		public List<WeaponBase> WeaponProficiencies
 		{ get; private set; }
 
-		public IntModifier Speed
-		{ get; private set; }
-
-		public IntModifier Initiative
-		{ get; private set; }
-
-		public IntModifier PassivePerception
-		{ get; private set; }
-		public IntModifier PassiveInsight
-		{ get; private set; }
-
-		public IntModifier MaxHitPoints
-		{ get; private set; }
-		public int BloodiedValue
-		{
-			get
-			{
-				return MaxHitPoints.Result / 2;
-			}
-		}
-		public int HealingSurgeValue
-		{
-			get
-			{
-				return BloodiedValue / 2;
-			}
-		}
-
-		public IntModifier MaxHealingSurges
-		{ get; private set; }
-
-		public Dictionary<string, Resistance> Resistances // yep, there are temp resistances
-		{ get; private set; }
-
-		public Dictionary<string, Resistance> Vulnerabilities // pretty much all of these will be temp
-		{ get; private set; }
-
-		public Dictionary<string, IStatusEffect> Immunities // of course temp immunities too
+		public List<ArmorType> ArmorProficiencies
 		{ get; private set; }
 		
-		public PlayerStatus Status
+		public new PlayerStatus Status
 		{ get; private set; }
 
-		public List<IPower> Powers
-		{ get; private set; }
-
+		/// <summary>
+		/// Anytime a weapon is added, a KVP must be added to attack and damage dictionaries
+		/// </summary>
 		public List<WeaponBase> Weapons
+		{ get; private set; }
+		public Dictionary<WeaponBase, IntModifier> WeaponAttacks
+		{ get; private set; }
+		public Dictionary<WeaponBase, IntModifier> WeaponDamage
+		{ get; private set; }
+
+		/// <summary>
+		/// Anytime an implement is added, a KVP must be added to attack and damage dictionaries
+		/// </summary>
+		public List<MagicImplement> Implements
+		{ get; private set; }
+		public Dictionary<MagicImplement, IntModifier> ImplementAttacks
+		{ get; private set; }
+		public Dictionary<MagicImplement, IntModifier> ImplementDamage
 		{ get; private set; }
 
 		public ArmorBase Armor
 		{ get; set; }
 
-		public List<IPower> ItemPowers
+		public List<SlottedItem> SlotItems
 		{ get; private set; }
 
-		public List<Languages> Languages
+		public List<PowerBase> ItemPowers
 		{ get; private set; }
 
 		public IntModifier CarryingCapacityBuffer // Think Bag of Holding / Handy Haversack
@@ -175,9 +127,6 @@ namespace DnD_4e.Entities
 		public List<IRitual> Rituals
 		{ get; private set; }
 
-		public List<Creature> Allies
-		{ get; private set; }
-
 #pragma warning	disable CS0067 // Yes, I know I haven't used these yet.
 		public event PlayerEvent OnActionPointUsed;
 		public event AttackedEvent OnDamageTaken;
@@ -195,15 +144,31 @@ namespace DnD_4e.Entities
 #pragma warning restore CS0067
 
 		// TODO: Stuff here
-		public PlayerCharacter()
+		public PlayerCharacter() : base()
 		{
 
 		}
 
+		// As if the player put on the items, learned the powers, feats, etc. for the first time.
 		public void PostInit()
 		{
-			PlayerEventArgs e = new PlayerEventArgs(this, Allies, null);
+			// TODO: FEATS
 
+			PlayerEventArgs e = new PlayerEventArgs(this, Allies, null);
+			foreach (SlottedItem item in SlotItems)
+			{
+				item.OnItemLoadEquip(e);
+			}
+			foreach (WeaponBase weapon in Weapons)
+			{
+				weapon.OnItemLoadEquip(e);
+			}
+			foreach (MagicImplement imp in Implements)
+			{
+				imp.OnItemLoadEquip(e);
+			}
+
+			// TODO: POWERS
 		}
 	}
 }

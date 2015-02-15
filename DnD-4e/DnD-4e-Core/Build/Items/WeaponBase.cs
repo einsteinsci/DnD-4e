@@ -51,6 +51,9 @@ namespace DnD_4e.Build.Items
 		public abstract WeaponHandedness Handedness
 		{ get; }
 
+		public abstract bool IsRanged
+		{ get; }
+
 		public int ProficiencyBonus
 		{
 			get
@@ -85,7 +88,7 @@ namespace DnD_4e.Build.Items
 		public abstract int Weight
 		{ get; }
 
-		public IPower BasicAttack
+		public PowerBase BasicAttack
 		{
 			get
 			{
@@ -93,9 +96,13 @@ namespace DnD_4e.Build.Items
 			}
 		}
 
-		public virtual void OnItemLoad(PlayerEventArgs e)
-		{ }
-		public virtual void OnItemUnload(PlayerEventArgs e)
-		{ }
+		public virtual void OnItemLoadEquip(PlayerEventArgs e)
+		{
+			Enchantment.OnItemLoadEquip(e);
+		}
+		public virtual void OnItemUnequip(PlayerEventArgs e)
+		{
+			Enchantment.OnItemUnequip(e);
+		}
 	}
 }

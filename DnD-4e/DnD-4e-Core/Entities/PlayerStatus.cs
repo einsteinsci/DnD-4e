@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using DnD_4e.Events;
 using DnD_4e.Mechanics;
 using DnD_4e.Powers;
@@ -11,44 +12,10 @@ namespace DnD_4e.Entities
 {
 	public partial class PlayerCharacter
 	{
-		public class PlayerStatus
+		public class PlayerStatus : CreatureStatus
 		{
 			public PlayerCharacter Player
 			{ get; private set; }
-
-			public List<Creature> Enemies
-			{ get; private set; }
-
-			public int UsedHealingSurges
-			{ get; set; }
-
-			public int HitPoints
-			{ get; set; }
-			public int TemporaryHitPoints
-			{ get; set; }
-			public bool Bloodied
-			{
-				get
-				{
-					return HitPoints < Player.BloodiedValue;
-				}
-			}
-			public bool Dying
-			{
-				get
-				{
-					return HitPoints <= 0 && !KO;
-				}
-			}
-
-			/// <summary>
-			/// Set to true when someone chooses to knock the player out but not put them in the "dying" state.
-			/// </summary>
-			public bool KO
-			{ get; set; }
-
-			public int ActionPointsLeft
-			{ get; set; }
 
 			public int MilestonesReached
 			{ get; set; }
@@ -56,18 +23,12 @@ namespace DnD_4e.Entities
 			public int UsedItemDailies
 			{ get; set; }
 
-			public List<IStatusEffect> StatusEffects
-			{ get; set; }
-
-			public void ApplyDamage(Damage dmg, Creature attacker)
+			public PlayerStatus(PlayerCharacter pc) : base(pc)
 			{
-				ApplyDamage(dmg, 1.0f, attacker);
+				Player = pc;
 			}
-			public void ApplyDamage(Damage dmg, float mult, Creature attacker)
-			{
-				ApplyDamage(dmg, mult, attacker, false);
-			}
-			public void ApplyDamage(Damage damage, float damageMultiplier, Creature attacker, bool ko)
+			
+			public override void ApplyDamage(Damage damage, float damageMultiplier, Creature attacker, bool ko)
 			{
 				int hpLoss = damage.Amount;
 
@@ -192,7 +153,7 @@ namespace DnD_4e.Entities
 				}
 			}
 
-			public void Heal(int amount, Creature attacker)
+			public void Heal(int amount, Creature healer)
 			{
 				PlayerEventArgs e = new PlayerEventArgs(Player, Player.Allies, Enemies);
 				Player.OnDamageHealed(e);

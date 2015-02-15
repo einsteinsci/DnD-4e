@@ -81,5 +81,13 @@ namespace DnD_4e.Build.Items.Weapons
 				return 0; // not worth calculating
 			}
 		}
+
+		public override ActionType Load
+		{
+			get
+			{
+				return ActionType.None; // thrown
+			}
+		}
 	}
 }

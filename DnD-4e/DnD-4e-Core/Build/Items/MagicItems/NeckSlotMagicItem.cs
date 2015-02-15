@@ -22,7 +22,7 @@ namespace DnD_4e.Build.Items.MagicItems
 			}
 		}
 
-		public override void OnItemLoaded(PlayerEventArgs e)
+		public override void OnItemLoadEquip(PlayerEventArgs e)
 		{
 			// There should never be more than one, so just set to the last one in case of overlap.
 			e.Player.Fortitude.Modifiers.AddSet(NECKSLOT_MODIFIER, BonusHalfTier);
@@ -30,7 +30,7 @@ namespace DnD_4e.Build.Items.MagicItems
 			e.Player.Will.Modifiers.AddSet(NECKSLOT_MODIFIER, BonusHalfTier);
 		}
 
-		public override void OnItemRemoved(PlayerEventArgs e)
+		public override void OnItemUnequip(PlayerEventArgs e)
 		{
 			e.Player.Fortitude.Modifiers.Remove(NECKSLOT_MODIFIER);
 			e.Player.Reflex.Modifiers.Remove(NECKSLOT_MODIFIER);
