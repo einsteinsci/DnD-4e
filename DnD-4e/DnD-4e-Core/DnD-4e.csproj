@@ -69,6 +69,7 @@
     <Compile Include="Build\Powers\AttackPower.cs" />
     <Compile Include="Build\Powers\EnumsPowers.cs" />
     <Compile Include="Build\Powers\Healing.cs" />
+    <Compile Include="Build\Powers\Targeting\CloseBlastTargeting.cs" />
     <Compile Include="Build\Powers\Targeting\CloseBurstTargeting.cs" />
     <Compile Include="Build\Powers\Targeting\MeleeTargeting.cs" />
     <Compile Include="Build\Powers\Targeting\RangedTargeting.cs" />

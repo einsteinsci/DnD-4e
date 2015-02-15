@@ -33,10 +33,14 @@ namespace DnD_4e.Build.Powers.Targeting
 				return _maxTargets;
 			}
 		}
-		int _maxTargets;
+
+		private int _maxTargets;
 
 		public int BurstSize
-		{ get; private set; }
+		{
+			get;
+			private set;
+		}
 
 		public override bool AreTargetsValid(IMapGrid map, Creature user, List<Creature> targets)
 		{
@@ -48,12 +52,15 @@ namespace DnD_4e.Build.Powers.Targeting
 			return map.WalkingDistance(user, target) <= BurstSize;
 		}
 
-		public CloseBurstTargeting(int maxTargets, int size)
-        {
-            _maxTargets = maxTargets;
-            BurstSize = size;
-        }
-		public CloseBurstTargeting(int size) : this(0, size)
-		{ }
+		public CloseBurstTargeting(int maxTargets, int size) :
+			this(size)
+		{
+			_maxTargets = maxTargets;
+		}
+
+		public CloseBurstTargeting(int size)
+		{
+			BurstSize = size;
+		}
 	}
 }
